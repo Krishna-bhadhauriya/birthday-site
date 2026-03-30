@@ -73,3 +73,20 @@ button:hover{
     font-size: 20px;
     margin-bottom: 10px;
 }
+
+.left_flag{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 550px;
+    height: auto;
+}
+
+.right_flag{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 550px;
+    height: auto;
+    transform: scaleX(-1);
+}
