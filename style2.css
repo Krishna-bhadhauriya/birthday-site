@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +7,9 @@
 }
 
 body{
-    background-color: #ffafc5;
+    background: linear-gradient(135deg, #ffafc5, #ffcfd2, #ffafc5);
+    background-size: 200% 200%;
+    animation: gradientMove 6s ease infinite;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,67 +17,88 @@ body{
     font-family: 'Indie Flower', cursive;
 }
 
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 .container{
-    height: 500px;
+    height: auto;
+    min-height: 500px;
     width: 100%;
     max-width: 1000px;
     padding: 20px;
 }
 
 .card{
-    background-color: #ffcfd2;
-    border-radius: 10px;
-    height: 400px;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    
+    min-height: 400px;
     width: 100%;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
 }
 
 .card h3{ 
-    font-size: 30px;
-    margin-top: 20px;
+    font-size: 35px;
+    margin-bottom: 20px;
     font-weight: 700;
+    color: #553E4E;
 }
 
-.card h4{
-    font-size: 18px;
-    margin-bottom: 10px;
+.card p {
+    font-size: 22px;
+    line-height: 1.6;
+    color: #4a3343;
+    text-align: left;
+    margin: 0 auto;
+    max-width: 800px;
 }
 
-.card button{
-    background-color: #553E4E;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
+/* Typewriter / Fade In Effect */
+.reveal-text span {
+    opacity: 0;
     display: inline-block;
-    font-family: 'Indie Flower', cursive;
-    font-size: 16px;
-    margin: 4px 2px;
-    margin-top: 35%;
-    cursor: pointer;
-    transition: 0.3s;
-
+    animation: fadeInReveal 1s forwards;
+    transform: translateY(10px);
 }
 
-button:hover{
-    background-color: #E0479E;
+@keyframes fadeInReveal {
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
 }
 
-.card:hover{
-    transform: scale(1.02);
-    transition: 0.3s;
-}
-
-.fa-gift{
-    font-size: 20px;
-    margin-bottom: 10px;
-}
+/* Delays for each span group */
+.reveal-text span:nth-of-type(1) { animation-delay: 0.5s; }
+.reveal-text span:nth-of-type(2) { animation-delay: 2.0s; }
+.reveal-text span:nth-of-type(3) { animation-delay: 3.5s; }
+.reveal-text span:nth-of-type(4) { animation-delay: 5.0s; }
+.reveal-text span:nth-of-type(5) { animation-delay: 6.0s; }
+.reveal-text span:nth-of-type(6) { animation-delay: 6.5s; }
+.reveal-text span:nth-of-type(7) { animation-delay: 7.0s; }
+.reveal-text span:nth-of-type(8) { animation-delay: 8.5s; }
+.reveal-text span:nth-of-type(9) { animation-delay: 9.5s; }
+.reveal-text span:nth-of-type(10) { animation-delay: 11.0s; }
+.reveal-text span:nth-of-type(11) { animation-delay: 13.0s; font-size: 26px; font-weight: bold; color: #E0479E;}
 
 .left_flag{
     position: fixed;
@@ -81,6 +106,7 @@ button:hover{
     left: 0;
     width: 550px;
     height: auto;
+    pointer-events: none;
 }
 
 .right_flag{
@@ -90,4 +116,5 @@ button:hover{
     width: 550px;
     height: auto;
     transform: scaleX(-1);
+    pointer-events: none;
 }
