@@ -99,6 +99,8 @@ body{
 .reveal-text span:nth-of-type(9) { animation-delay: 9.5s; }
 .reveal-text span:nth-of-type(10) { animation-delay: 11.0s; }
 .reveal-text span:nth-of-type(11) { animation-delay: 13.0s; font-size: 26px; font-weight: bold; color: #E0479E;}
+.reveal-text span:nth-of-type(12) { animation-delay: 15.0s; }
+.reveal-text span:nth-of-type(13) { animation-delay: 17.0s; }
 
 .left_flag{
     position: fixed;
