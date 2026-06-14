@@ -26,7 +26,10 @@
             <p id="small-message" class="small-message">There's the BIRTHDAY girl! 💖</p>
 
             <!-- Hidden initially, shown after gift clicked -->
-            <button id="btn" style="display: none;">Read my letter</button>
+            <div id="button-group" class="button-group" style="display: none;">
+                <button id="btn">Read my letter</button>
+                <button id="btn-no">don't want to</button>
+            </div>
         </div>
     </div>
 
@@ -37,6 +40,8 @@
     let photo = document.getElementById("siddhi-photo");
     let smallMessage = document.getElementById("small-message");
     let button = document.getElementById("btn");
+    let buttonGroup = document.getElementById("button-group");
+    let btnNo = document.getElementById("btn-no");
 
     giftIcon.addEventListener("click", function() {
         // Trigger confetti
@@ -50,10 +55,10 @@
         // Hide gift
         giftIcon.style.display = "none";
 
-        // Show photo, message, and button
+        // Show photo, message, and button group
         photo.style.display = "block";
         smallMessage.style.display = "block";
-        button.style.display = "inline-block";
+        buttonGroup.style.display = "flex";
     });
 
     button.addEventListener("click", function() {
@@ -64,6 +69,27 @@
         setTimeout(() => {
             window.location.href = "message.html";
         }, 800);
+    });
+
+    function moveButton() {
+        if (btnNo.parentElement !== document.body) {
+            document.body.appendChild(btnNo);
+        }
+        
+        const x = Math.max(10, Math.random() * (window.innerWidth - btnNo.offsetWidth - 20));
+        const y = Math.max(10, Math.random() * (window.innerHeight - btnNo.offsetHeight - 20));
+        
+        btnNo.style.position = "fixed";
+        btnNo.style.left = `${x}px`;
+        btnNo.style.top = `${y}px`;
+        btnNo.style.margin = "0";
+        btnNo.style.zIndex = "9999";
+    }
+
+    btnNo.addEventListener("mouseover", moveButton);
+    btnNo.addEventListener("click", function(e) {
+        e.preventDefault();
+        moveButton();
     });
     </script>
 

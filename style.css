@@ -71,7 +71,7 @@ body{
     color: #4a3343;
 }
 
-.card button{
+.card button, #btn-no{
     background-color: #553E4E;
     border: none;
     color: white;
@@ -88,7 +88,7 @@ body{
     box-shadow: 0 4px 15px rgba(85, 62, 78, 0.3);
 }
 
-.card button:hover{
+.card button:hover, #btn-no:hover{
     background-color: #E0479E;
     transform: scale(1.05);
     box-shadow: 0 6px 20px rgba(224, 71, 158, 0.4);
@@ -163,4 +163,16 @@ body{
     height: auto;
     transform: scaleX(-1);
     pointer-events: none;
+}
+
+.button-group {
+    display: none;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+#btn-no {
+    transition: none; /* Teleport instantly */
 }
